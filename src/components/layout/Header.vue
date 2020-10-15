@@ -27,4 +27,9 @@ export default {
     padding-right: 5px;
     text-decoration: none;
   }
+
+  .router-link-exact-active {
+    background-color: indianred;
+  }
+
 </style>
