@@ -1,13 +1,21 @@
 <template>
-  <div class="todo-item">
-    <p>{{ todo.title }}</p>
+  <div class="todo-item" :class="{ 'is-complete': todo.completed }">
+    <p>
+      <input type="checkbox" @change="markComplete">  
+      {{ todo.title }}
+    </p>
   </div>
 </template>
 
 <script>
 export default {
   name: "TodoItem",
-  props: ["todo"]
+  props: ["todo"],
+  methods: {
+    markComplete() {
+      this.todo.completed = !this.todo.completed
+    }
+  }
 }
 </script>
 
@@ -19,7 +27,7 @@ export default {
   }
 
   .is-complete {
-    text-decoration: underline;
+    text-decoration: line-through;
   }
 
   .del {
