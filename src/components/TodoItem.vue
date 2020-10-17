@@ -3,18 +3,23 @@
     <p>
       <input type="checkbox" @change="markComplete">  
       {{ todo.title }}
-      <button @click="$emit('del-todo', todo.id)" class="del">x</button>
+      <button @click="handleButtonClick" class="del">x</button>
     </p>
   </div>
 </template>
 
 <script>
+import { eventBus } from '../main'
+
 export default {
   name: "TodoItem",
   props: ["todo"],
   methods: {
     markComplete() {
       this.todo.completed = !this.todo.completed
+    },
+    handleButtonClick() {
+      eventBus.$emit('del-todo', this.todo.id)
     }
   }
 }
