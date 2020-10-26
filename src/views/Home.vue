@@ -43,10 +43,6 @@ export default {
   },
 
   methods: {
-    deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id)
-      this.saveTodo()
-    },
     addTodo(newTodo) {
       // this.todos = [...this.todos, newTodo]
       this.todos.push(newTodo)
